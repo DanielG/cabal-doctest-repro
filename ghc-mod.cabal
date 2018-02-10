@@ -1,0 +1,26 @@
+Name:                   ghc-mod
+Version:                5.9.0.0
+Author:                 Daniel Gröber <dxld@darkboxed.org>,
+Maintainer:             Daniel Gröber <dxld@darkboxed.org>
+Cabal-Version:          >= 1.24
+Build-Type:             Custom
+
+Custom-Setup
+  Setup-Depends:         base
+                       , Cabal               < 2.1  && >= 1.24
+                       , cabal-doctest       < 1.1  && >= 1
+
+Library
+  Default-Language:     Haskell2010
+  HS-Source-Dirs:       .
+  Exposed-Modules:      GhcMod.Exe.Boot
+                        GhcMod
+  Build-Depends:        base
+
+Test-Suite doctest
+  Type:                 exitcode-stdio-1.0
+  Default-Language:     Haskell2010
+  HS-Source-Dirs:       test
+  Main-Is:              doctests.hs
+  Build-Depends:        base                 < 4.11 && >= 4.6.0.1
+                      , doctest              < 0.12 && >= 0.9.3
